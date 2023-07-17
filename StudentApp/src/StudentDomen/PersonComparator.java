@@ -1,6 +1,5 @@
 package StudentDomen;
 
-import java.beans.IntrospectionException;
 import java.util.Comparator;
 
 /**
@@ -11,17 +10,14 @@ import java.util.Comparator;
 public class PersonComparator<T extends Person> implements Comparator<T> {
     /* перегрузка метода сравнения */
     @Override
-    // public int compare(T o1, T o2) {
-    // int resultOfComparing = ;
-    // if (resultOfComparing == 0) {
-    // resultOfComparing = ;
-    // return resultOfComparing;
-    // } else {
-    // return resultOfComparing;
-    // }
-    // }
     public int compare(T o1, T o2) {
-        return o1.getId() - o2.getId();
+        int resultOfComparing = o1.getFirstName().compareTo(o2.getFirstName());
+        if (resultOfComparing == 0) {
+            resultOfComparing = o1.getSecondName().compareTo(o2.getSecondName());
+            return resultOfComparing;
+        } else {
+            return resultOfComparing;
+        }
     }
 
 }

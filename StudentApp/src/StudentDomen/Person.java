@@ -9,7 +9,6 @@ public class Person {
     private String secondName;
     private String patronymic;
     private int age;
-    public int id;
 
     /**
      * конструктор
@@ -18,14 +17,12 @@ public class Person {
      * @param secondName фамилия
      * @param patronymic отчество
      * @param age        возраст
-     * @param id         Id человека в системе
      */
-    public Person(String firstName, String secondName, String patronymic, int age, int id) {
+    public Person(String firstName, String secondName, String patronymic, int age) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.age = age;
-        this.id = id;
     }
 
     public Person(String firstName2, String secondName2, int age2) {
@@ -71,16 +68,6 @@ public class Person {
         this.age = age;
     }
 
-    /* Получение Id */
-    public int getId() {
-        return id;
-    }
-
-    /* Установка Id */
-    public void setId(int id) {
-        this.id = id;
-    }
-
     /* перегрузка метода вывода */
     @Override
     public String toString() {
@@ -89,7 +76,6 @@ public class Person {
                 ", secondName='" + secondName + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", age=" + age +
-                ", Id=" + id +
                 '}';
     }
 }

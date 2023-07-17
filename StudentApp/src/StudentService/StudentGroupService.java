@@ -25,8 +25,8 @@ public class StudentGroupService {
         return this.groups;
     }
 
-    // метод получения отсортированных студентов по ID
-    public List<Student> getSortedByIdStudentGroup(int numberGroup) {
+    // метод получения отсортированных студентов по ФИО
+    public List<Student> getSortedByFIOStudentGroup(int numberGroup) {
         List<Student> students = new ArrayList<>(groups.get(numberGroup).getStudents());
         students.sort(new PersonComparator<Student>());
         return students;

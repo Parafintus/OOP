@@ -8,7 +8,7 @@ import StudentDomen.Student;
 /**
  * Класс Студент Сервис имплементирует интерфейс Сервис Пользователей
  */
-public class StudentService implements iUserService<Student> {
+public class StudentService implements iPersonService<Student> {
     // счетчик количества элементов типа Student, так же используется в качестве
     // идентификатора для элементов
     private int count;
@@ -24,8 +24,8 @@ public class StudentService implements iUserService<Student> {
 
     // перегрузка метода создания элемента с отчеством
     @Override
-    public void create(String SecondName, String firstName, String patronymic, int age, int id) {
-        Student per = new Student(SecondName, firstName, patronymic, age, id);
+    public void create(String lastName, String firstName, String patronymic, int age) {
+        Student per = new Student(lastName, firstName, patronymic, age, count);
         count++;
         students.add(per);
     }
@@ -40,7 +40,7 @@ public class StudentService implements iUserService<Student> {
         return null;
     }
 
-    public List<Student> getSortedByIdStudentGroup() {
+    public List<Student> getSortedByFIOStudentGroup() {
         return null;
     }
 

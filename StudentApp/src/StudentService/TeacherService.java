@@ -10,8 +10,10 @@ import StudentDomen.PersonComparator;
  * 
  * Класс Сервис преподавателей имплементирует интерфейс Сервис Пользователей
  */
-public class TeacherService implements iUserService<Teacher> {
-
+public class TeacherService implements iPersonService<Teacher> {
+    // счетчик количества элементов типа Teacher, так же используется в качестве
+    // идентификатора для элементов
+    private int count;
     // список преподавателей, созданных внутри сервиса
     private List<Teacher> teachers;
 
@@ -22,16 +24,17 @@ public class TeacherService implements iUserService<Teacher> {
     }
 
     // создание элемента с учетом ученой степени
-    public void create(String firstName, String secondName, String patronimic, int age, String academicDegree, int id) {
-        Teacher per = new Teacher(firstName, secondName, patronimic, age, academicDegree, id);
-
+    public void create(String firstName, String secondName, String patronimic, int age, String academicDegree) {
+        Teacher per = new Teacher(firstName, secondName, patronimic, age, count, academicDegree);
+        count++;
         teachers.add(per);
     }
 
     // перегрузка метода создания элемента
     @Override
-    public void create(String lastName, String firstName, String patronymic, int age, int id) {
-        Teacher per = new Teacher(lastName, firstName, patronymic, age, "", id);
+    public void create(String lastName, String firstName, String patronymic, int age) {
+        Teacher per = new Teacher(lastName, firstName, patronymic, age, count, "");
+        count++;
         teachers.add(per);
     }
 
@@ -41,8 +44,8 @@ public class TeacherService implements iUserService<Teacher> {
         return teachers;
     }
 
-    // метод получения отсортированных преподавателей по ID
-    public List<Teacher> getSortedByIdStudentGroup() {
+    // метод получения отсортированных преподавателей по ФИО
+    public List<Teacher> getSortedByFIOStudentGroup() {
         List<Teacher> teachs = new ArrayList<>(teachers);
         teachs.sort(new PersonComparator<Teacher>());
         return teachs;

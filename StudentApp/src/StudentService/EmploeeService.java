@@ -9,7 +9,7 @@ import StudentDomen.PersonComparator;
 /**
  * Класс Сервис рабочих имплементирует интерфейс Сервис Пользователей
  */
-public class EmploeeService implements iUserService<Emploee> {
+public class EmploeeService implements iPersonService<Emploee> {
     // список рабочих, созданных внутри сервиса
     private List<Emploee> emploees;
 
@@ -22,8 +22,8 @@ public class EmploeeService implements iUserService<Emploee> {
 
     // перегрузка метода создания элемента
     @Override
-    public void create(String lastName, String firstName, String patronymic, int age, int id) {
-        emploees.add(new Emploee(lastName, firstName, patronymic, age, id));
+    public void create(String lastName, String firstName, String patronymic, int age) {
+        emploees.add(new Emploee(lastName, firstName, patronymic, age));
     }
 
     // перегрузка метода получения всех элементов
@@ -33,10 +33,9 @@ public class EmploeeService implements iUserService<Emploee> {
     }
 
     // метод получения отсортированных работников по ФИО
-    public List<Emploee> getSortedByIdStudentGroup() {
+    public List<Emploee> getSortedByFIOStudentGroup() {
         List<Emploee> emps = new ArrayList<>(emploees);
         emps.sort(new PersonComparator<Emploee>());
         return emps;
     }
-
 }

@@ -8,25 +8,25 @@ import java.util.List;
  * перебора его элементов - групп
  */
 public class StudentSteam implements Iterable<StudentGroup> {
-    private List<StudentGroup> steam;
+    private List<StudentGroup> flow;
 
     /**
      * конструктор класса
      * 
-     * @param steam список групп потока
+     * @param flow список групп потока
      */
-    public StudentSteam(List<StudentGroup> steam) {
-        this.steam = steam;
+    public StudentSteam(List<StudentGroup> flow) {
+        this.flow = flow;
     }
 
     /* получение списка групп в потоке */
-    public List<StudentGroup> getSteam() {
-        return steam;
+    public List<StudentGroup> getFlow() {
+        return flow;
     }
 
     /* установка списка групп в потоке */
-    public void setSteam(List<StudentGroup> steam) {
-        this.steam = steam;
+    public void setFlow(List<StudentGroup> flow) {
+        this.flow = flow;
     }
 
     /* перегрузка метода Итератора с использованием анонимного класса */
@@ -37,7 +37,7 @@ public class StudentSteam implements Iterable<StudentGroup> {
 
             @Override
             public boolean hasNext() {
-                return index < steam.size();
+                return index < flow.size();
             }
 
             @Override
@@ -46,7 +46,7 @@ public class StudentSteam implements Iterable<StudentGroup> {
                     return null;
                 }
                 // counter++;
-                return steam.get(index++);
+                return flow.get(index++);
             }
 
         };

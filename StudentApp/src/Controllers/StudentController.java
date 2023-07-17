@@ -8,7 +8,7 @@ import StudentService.StudentService;
  * Класс Контроллер Стедентов, имплементированный интерфейсом контроллера за
  * пользователями
  */
-public class StudentController implements iUserController<Student> {
+public class StudentController implements iPersonController<Student> {
     // поле данные сервиса студентов
     private final StudentService dataService = new StudentService();
     // поле данные сервиса группы студентов
@@ -16,8 +16,8 @@ public class StudentController implements iUserController<Student> {
 
     // перегрузка метода создания экземпляра
     @Override
-    public void create(String firstName, String secondName, String patronimic, int age, int id) {
-        dataService.create(firstName, secondName, patronimic, age, id);
+    public void create(String firstName, String secondName, String patronimic, int age) {
+        dataService.create(firstName, secondName, patronimic, age);
     }
 
     /**
@@ -25,7 +25,6 @@ public class StudentController implements iUserController<Student> {
      * @param secondName
      * @param patronimic
      * @param age
-     * @param id
      */
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup> {
     private List<Student> students;
-    private int groupID;
+    private long groupID;
 
     /**
      * конструктор класса
@@ -18,7 +18,7 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
      * @param students список студентов
      * @param groupID  номер группы
      */
-    public StudentGroup(List<Student> students, int groupID) {
+    public StudentGroup(List<Student> students, long groupID) {
         this.students = students;
         this.groupID = groupID;
     }
@@ -37,12 +37,12 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
     }
 
     /* получение номера группы */
-    public int getGroupID() {
+    public long getGroupID() {
         return groupID;
     }
 
     /* установка номера группы */
-    public void setGroupID(int groupID) {
+    public void setGroupID(long groupID) {
         this.groupID = groupID;
     }
 

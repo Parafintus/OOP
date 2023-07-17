@@ -5,6 +5,8 @@ package StudentDomen;
  */
 public class Emploee extends Person {
 
+    private int empId;
+
     /**
      * Конструктор класса
      * 
@@ -12,11 +14,33 @@ public class Emploee extends Person {
      * @param secondName фамилия
      * @param patronymic отчество
      * @param age        возраст
-     * @param id         идентификационный номер
+     * @param empId      идентификационный номер
      */
-    public Emploee(String firstName, String secondName, String patronymic, int age, int id) {
-        super(firstName, secondName, patronymic, age, id);
-        this.id = id;
+    public Emploee(String firstName, String secondName, String patronymic, int age, int empId) {
+        super(firstName, secondName, patronymic, age);
+        this.empId = empId;
+    }
+
+    /**
+     * Конструктор класса для создания объекта без идентификационного номера
+     * 
+     * @param firstName  имя
+     * @param secondName фамилия
+     * @param patronymic отчество
+     * @param age        возраст
+     */
+    public Emploee(String firstName, String secondName, String patronymic, int age) {
+        super(firstName, secondName, patronymic, age);
+    }
+
+    /* получение идентификационного номера работника */
+    public int getEmpId() {
+        return empId;
+    }
+
+    /* установка идентификационного номера работника */
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
     /* перегрузка метода вывода */
@@ -27,11 +51,11 @@ public class Emploee extends Person {
                 + ", secondName=" + super.getSecondName()
                 + ", patronymic=" + super.getPatronymic()
                 + ", age=" + super.getAge()
-                + ", ID=" + id
+                + ", empID=" + empId
                 + '}';
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return null;
     }
 }

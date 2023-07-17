@@ -14,11 +14,21 @@ public class Student extends Person implements Comparable<Student> {
      * @param secondName фамилия
      * @param patronymic отчество
      * @param age        возраст
-     * @param id         идентификационный номер
+     * @param studentID  идентификационный номер
      */
-    public Student(String firstName, String secondName, String patronymic, int age, int id) {
-        super(firstName, secondName, patronymic, age, id);
-        this.id = id;
+    public Student(String firstName, String secondName, String patronymic, int age, long studentID) {
+        super(firstName, secondName, patronymic, age);
+        this.studentID = studentID;
+    }
+
+    /* получение идентификационного номера студента */
+    public long getStudentID() {
+        return studentID;
+    }
+
+    /* установка идентификационного номера студента */
+    public void setStudentID(long studentID) {
+        this.studentID = studentID;
     }
 
     /* перегрузка метода вывода */
@@ -29,7 +39,7 @@ public class Student extends Person implements Comparable<Student> {
                 + ", secondName=" + super.getSecondName()
                 + ", patronymic=" + super.getPatronymic()
                 + ", age=" + super.getAge() +
-                ", ID=" + id +
+                ", studentID=" + studentID +
                 '}';
     }
 

@@ -6,7 +6,7 @@ package StudentDomen;
 public class Teacher extends Person {
 
     private String patronymic;
-
+    private int teacherId;
     private String academicDegree;
 
     /**
@@ -18,14 +18,23 @@ public class Teacher extends Person {
      * @param patronymic     отчество
      * @param age            возраст
      * @param academicDegree ученая степень
-     * @param id             id в системе
      */
-    public Teacher(String firstName, String secondName, String patronymic, int age,
-            String academicDegree, int id) {
-        super(firstName, secondName, patronymic, age, id);
-        this.patronymic = patronymic;
+    public Teacher(String firstName, String secondName, String patronymic, int age, int teacherId,
+            String academicDegree) {
+        super(firstName, secondName, patronymic, age);
+        // this.patronymic = patronymic;
+        this.teacherId = teacherId;
         this.academicDegree = academicDegree;
-        this.id = id;
+    }
+
+    /* получение идентификационного номера преподавателя */
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    /* установка идентификационного номера преподавателя */
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     /* получение ученой степени преподавателя */
@@ -46,7 +55,7 @@ public class Teacher extends Person {
                 ", secondName=" + getSecondName() +
                 ", patronymic=" + getPatronymic() +
                 ", age=" + getAge() +
-                ", id=" + id +
+                ", teacherId=" + teacherId +
                 ", academicDegree=" + academicDegree +
                 '}';
     }
